@@ -12,19 +12,13 @@ let computerScore = document.getElementsByClassName('computer-score')[0]
 function win() {
     userCount++
     userScore.innerHTML = userCount
-    if (userCount === 5) {
-        alert('You win!')
-        location.reload()
-    }
+    setTimeout(() => gameOver(), 100)
 }
 
 function lose() {
     computerCount++
     computerScore.innerHTML = computerCount
-    if (computerCount === 5) {
-        alert('You lose!')
-        location.reload()
-    }
+    setTimeout(() => gameOver(), 100)
 }
 
 function draw() {
@@ -69,6 +63,17 @@ function game() {
     paperDiv.addEventListener('click', () => playGame('p'))
     scissorDiv.addEventListener('click',() => playGame('s'))
     rockDiv.addEventListener('click', () => playGame('r'))
+}
+
+function gameOver() {
+    if (userCount === 5) {
+        alert('You win!')
+        location.reload()
+    }
+    if (computerCount === 5) {
+        alert('You lose!')
+        location.reload()
+    }
 }
 
 game()
